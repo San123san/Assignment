@@ -1,48 +1,43 @@
-# Part 1: System Design
-
 # E-Commerce System
-File Name:
+
+**File Name:** `part_1_system_design.py`
 
 ## Description
-This is a simple E-Commerce system implemented in Python. It allows users to create accounts, log in, manage orders, add or remove products from their cart, and process payments. The system keeps track of users, products, and orders, providing a basic foundation for an online shopping experience.
+This project implements a simple E-Commerce system in Python. It enables users to create accounts, log in, manage orders, add or remove products from their cart, and process payments. The system effectively tracks users, products, and orders, providing a foundational experience for online shopping.
 
 ### Features
-- User account management (creation and login)
-- Product management (adding, removing, and updating stock)
-- Order management (creating, completing, and updating orders)
-- Payment processing
+- **User Account Management**: Allows for user account creation and login.
+- **Product Management**: Supports adding, removing, and updating product stock.
+- **Order Management**: Facilitates order creation, completion, and updates.
+- **Payment Processing**: Handles payment transactions for orders.
 
 ## Class Diagram
-File Name:
+**File Name:** part_1_system_design(Class_Diagram).md
 
 ## Getting Started
 
 ### Prerequisites
-- Python 3.x installed on your machine.
-- Visual Studio Code (VS Code) installed.
+- **Python 3.x**: Ensure Python is installed on your machine.
+- **Visual Studio Code (VS Code)**: Recommended IDE for running the code.
 
 ### Running the Code in Visual Studio Code
 
-1. **Open VS Code**: Launch Visual Studio Code.
+#### For Windows
 
-2. **Open the Project**: Use `File > Open Folder...` to open the folder containing your Python script.
+1. **Launch Visual Studio Code**: Open the application on your computer.
 
-3. **Create a Virtual Environment (Optional)**:
-   - Open a terminal in VS Code (Terminal > New Terminal).
-   - Run the following command to create a virtual environment:
-     ```bash
-     python -m venv venv
-     ```
-   - Activate the virtual environment:
-     - On Windows:
-       ```bash
-       venv\Scripts\activate
-       ```
-     - On macOS/Linux:
-       ```bash
-       source venv/bin/activate
-       ```
+2. **Open the File**: Navigate to and open `Part_1_System_Design.py` in VS Code.
 
-4. **Install Dependencies** (if any): If your code has dependencies, you can install them using pip:
+3. **Open the Terminal**: Access the terminal within VS Code by selecting `View > Terminal` from the menu.
+
+4. **Run the Code**: In the terminal, execute the following command:
+
+   For Window
    ```bash
-   pip install -r requirements.txt
+   python Part_1_System_Design.py
+   ```
+
+   For MAC
+   ```bash
+   python3 Part_1_System_Design.py
+   ```
