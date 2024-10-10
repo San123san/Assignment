@@ -41,3 +41,8 @@ This project implements a simple E-Commerce system in Python. It enables users t
    ```bash
    python3 Part_1_System_Design.py
    ```
+
+
+
+
+part_2_business_logic_implementation.py
