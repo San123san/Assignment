@@ -4,9 +4,9 @@ class User:
         self.username = username
         self.email = email
         self.password = password
-        self.orders = []  # List to hold active orders
-        self.completed_orders = []  # List to hold completed orders
-        self.all_orders = []  # List to hold all orders
+        self.orders = []  
+        self.completed_orders = []  
+        self.all_orders = [] 
 
     def login(self, email, password):
         return self.email == email and self.password == password
@@ -18,20 +18,20 @@ class User:
         return order
     
     def complete_order(self, order):
-        self.completed_orders.append(order)  # Store completed order
-        self.orders.remove(order)  # Remove from active orders
+        self.completed_orders.append(order)  
+        self.orders.remove(order) 
 
 
 class Order:
     def __init__(self, user_id):
-        self.order_id = id(self)  # Placeholder for a unique ID
+        self.order_id = id(self) 
         self.user_id = user_id
-        self.status = 'pending'  # Order status
-        self.products = []  # List of tuples (Product, Quantity)
-        self.payment_status = 'pending'  # Payment status
+        self.status = 'pending' 
+        self.products = []  
+        self.payment_status = 'pending' 
 
     def add_product(self, product, quantity):
-        self.products.append((product, quantity))  # Store product and quantity as a tuple
+        self.products.append((product, quantity))  
 
     def remove_product(self, product):
         self.products = [(p, qty) for p, qty in self.products if p.product_id != product.product_id]
@@ -42,13 +42,13 @@ class Order:
                 if qty + quantity > 0:
                     self.products[i] = (p, qty + quantity)
                 else:
-                    self.remove_product(product)  # Remove the product if quantity goes to 0
+                    self.remove_product(product)  
                 break
 
     def reset_cart(self):
-        self.products.clear()  # Clear the cart
-        self.payment_status = 'pending'  # Reset payment status
-        self.status = 'pending'  # Reset order status
+        self.products.clear()  
+        self.payment_status = 'pending'  
+        self.status = 'pending'  
 
     def get_cart_summary(self):
         summary = []
@@ -64,20 +64,20 @@ class Order:
                 "price": product.price,
                 "total": item_total
             })
-        return summary, total_price, total_quantity, self.payment_status  # Include payment status
+        return summary, total_price, total_quantity, self.payment_status 
 
 
 class Payment:
     def __init__(self, order_id, amount, method):
-        self.payment_id = id(self)  # Placeholder for a unique ID
+        self.payment_id = id(self)  
         self.order_id = order_id
         self.amount = amount
         self.method = method
         self.status = 'pending'
 
-    def process(self, order):  # Accept the order instance as a parameter
+    def process(self, order):  
         self.status = 'completed'
-        order.reset_cart()  # Reset the cart
+        order.reset_cart() 
         print(f"Payment processed for Order ID: {self.order_id} using {self.method}.")
 
 
@@ -87,7 +87,7 @@ class Product:
         self.name = name
         self.price = price
         self.description = description
-        self.stock = stock  # New attribute for stock
+        self.stock = stock  
 
     def update_stock(self, quantity):
         self.stock -= quantity
@@ -208,7 +208,7 @@ if __name__ == "__main__":
                                             while True:
                                                 quantity = input(f"Enter quantity to add for {selected_product.name} (available: {selected_product.stock} or type 'cancel' to exit): ")
                                                 if quantity.lower() == 'cancel':
-                                                    break  # Exit quantity selection
+                                                    break  
 
                                                 if not quantity.isdigit():
                                                     print("Please enter a valid number for quantity.")
@@ -223,7 +223,6 @@ if __name__ == "__main__":
                                                     order.add_product(selected_product, quantity)  # Add product and quantity
                                                     selected_product.update_stock(quantity)  # Decrease stock by the specified quantity
                                                     
-                                                    # Show cart summary immediately after adding the product
                                                     cart_summary, total_price, total_quantity, payment_status = order.get_cart_summary()
                                                     print("\nUpdated Cart Summary:")
                                                     for item in cart_summary:
@@ -231,7 +230,7 @@ if __name__ == "__main__":
                                                     print(f"Total Quantity in Cart: {total_quantity}")
                                                     print(f"Total Amount to Pay: ${total_price:.2f}")
                                                     print(f"Payment Status: {payment_status}")  # Display payment status
-                                                    break  # Exit the quantity loop
+                                                    break 
 
                                 elif action_choice == '2':
                                     while True:
@@ -301,7 +300,7 @@ if __name__ == "__main__":
                                             new_quantity = int(new_quantity)
                                             order.update_quantity(product, new_quantity - qty)  # Update quantity
                                             print(f"Updated quantity for {product.name}.")
-                                            break  # Exit the update loop
+                                            break 
 
                                 elif action_choice == '4':
                                     cart_summary, total_price, total_quantity, payment_status = order.get_cart_summary()  # Get payment status
@@ -320,13 +319,13 @@ if __name__ == "__main__":
 
                                     payment_method = input("Enter payment method (Credit/Debit/Cash): ")
                                     payment = Payment(order.order_id, total_price, payment_method)
-                                    payment.process(order)  # Pass the order to the process method
-                                    order.payment_status = 'completed'  # Update payment status
-                                    order.status = 'completed'  # Update order status
-                                    current_user.complete_order(order)  # Complete the order
+                                    payment.process(order)  
+                                    order.payment_status = 'completed'  
+                                    order.status = 'completed'
+                                    current_user.complete_order(order) 
 
                                     # Create a new order for subsequent purchases
-                                    order = current_user.create_order()  # Create a new order for further actions
+                                    order = current_user.create_order()
 
                                     print("Thank you for your purchase!")
 
@@ -344,7 +343,7 @@ if __name__ == "__main__":
                                 elif action_choice == '7':
                                     print("Logging out...")
                                     current_user = None
-                                    break  # Exit the user loop
+                                    break  
 
                                 elif action_choice == '8':
                                     print("Exiting the application.")
@@ -353,11 +352,11 @@ if __name__ == "__main__":
                             break  # Break out of password attempts if logged in successfully
                     else:
                         print("Too many incorrect password attempts. Please try again later.")
-                    break  # Break out of email attempts after finding the user
+                    break  
 
         elif choice == '3':
             print("Exiting the application.")
-            break  # Exit the main loop
+            break  
 
         else:
             print("Invalid choice. Please try again.")
