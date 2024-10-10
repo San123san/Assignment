@@ -1,4 +1,6 @@
-# E-Commerce System
+# Part 1: System Design
+
+## E-Commerce System
 
 **File Name:** `part_1_system_design.py`
 
@@ -45,4 +47,47 @@ This project implements a simple E-Commerce system in Python. It enables users t
 
 
 
-part_2_business_logic_implementation.py
+# Part 2: Business Logic Implementation
+
+## Inventory Management System
+
+**File Name:** `part_2_business_logic_implementation.py`
+
+### Description
+
+This inventory management system tracks stock levels and manages restocking for a warehouse. It allows for processing sales orders and updating stock levels while providing alerts for items that need restocking.
+
+## Features
+
+- **Load Inventory**: Load initial products with their stock levels.
+- **Process Orders**: Reduce stock levels based on incoming sales orders. Triggers restock alerts if stock levels fall below a specified threshold.
+- **Restock Items**: Update stock levels for items that need restocking.
+
+## Getting Started
+
+### Prerequisites
+
+- **Python 3.x**: Ensure Python is installed on your machine.
+- **Visual Studio Code (VS Code)**: Recommended IDE for running the code.
+
+### Running the Code in Visual Studio Code
+
+#### For Windows
+
+1. **Launch Visual Studio Code**: Open the application on your computer.
+
+2. **Open the File**: Navigate to and open `part_2_business_logic_implementation.py` in VS Code.
+
+3. **Open the Terminal**: Access the terminal within VS Code by selecting `View > Terminal` from the menu.
+
+4. **Run the Code**: In the terminal, execute the following command:
+
+   ```bash
+   python part_2_business_logic_implementation.py
+
+   ```
+
+   For MAC
+   ```bash
+   python3 Part_1_System_Design.py
+   ```
